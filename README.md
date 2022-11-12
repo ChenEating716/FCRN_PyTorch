@@ -21,19 +21,19 @@ This is an original implementation of [Deeper Depth Prediction with Fully Convol
 
 After 15 epochs of training:
 
-<img src="pics/rgb_2.png" alt="rgb_2" style="zoom:85%;" /> <img src="pics/gt_2.png" alt="pred_2" style="zoom:85%;" /><img src="pics/pred_2.png" alt="gt_2" style="zoom:85%;" />
+<img src="pics/rgb_2.png" alt="rgb_2" style="zoom:65%;" /> <img src="pics/gt_2.png" alt="pred_2" style="zoom:65%;" /><img src="pics/pred_2.png" alt="gt_2" style="zoom:65%;" />
 
 ------
 
 
 
-<img src="pics/rgb_0.png" alt="rgb_0" style="zoom:85%;" /><img src="pics/gt_0.png" alt="gt_0" style="zoom:85%;" /><img src="pics/pred_0.png" alt="pred_0" style="zoom:85%;" />
+<img src="pics/rgb_0.png" alt="rgb_0" style="zoom:65%;" /><img src="pics/gt_0.png" alt="gt_0" style="zoom:65%;" /><img src="pics/pred_0.png" alt="pred_0" style="zoom:65%;" />
 
 ------
 
 
 
-<img src="pics/rgb_1.png" alt="rgb_1" style="zoom:85%;" /><img src="pics/gt_1.png" alt="pred_1" style="zoom:85%;" /><img src="pics/pred_1.png" alt="pred_1" style="zoom:85%;" />
+<img src="pics/rgb_1.png" alt="rgb_1" style="zoom:65%;" /><img src="pics/gt_1.png" alt="pred_1" style="zoom:65%;" /><img src="pics/pred_1.png" alt="pred_1" style="zoom:65%;" />
 
 ------
 
