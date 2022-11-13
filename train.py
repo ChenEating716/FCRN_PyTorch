@@ -14,7 +14,6 @@ from trainOption import TrainOptions
 from model import FCRN_wrapper
 from utils import setup_seed
 
-
 if __name__ == "__main__":
     opt = TrainOptions().parse()
     setup_seed(opt.seed)
@@ -23,7 +22,10 @@ if __name__ == "__main__":
     dataset = nyu_dataset(opt)
     FCRN_wrapper = FCRN_wrapper(opt, dataset, writer)
 
-    for epoch in range(opt.n_epochs):
+    if opt.pretrain:
+        FCRN_wrapper.load_pretrained_model(opt.pretrained_model)
+
+    for epoch in range(FCRN_wrapper.epoch, opt.n_epochs):
         epoch_start_time = time.time()
 
         FCRN_wrapper.train()
@@ -36,3 +38,6 @@ if __name__ == "__main__":
 
         FCRN_wrapper.update_learning_rate()
         FCRN_wrapper.evaluate()
+
+    torch.cuda.empty_cache()
+    del FCRN_wrapper

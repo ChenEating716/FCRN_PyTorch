@@ -120,7 +120,11 @@ class BerHuLoss(nn.Module):
         super(BerHuLoss, self).__init__()
 
     def forward(self, pred, label):
+        pred = torch.flatten(pred, start_dim=1, end_dim=-1)
+        label = torch.flatten(label, start_dim=1, end_dim=-1)
         t = 0.2 * torch.max(torch.abs(pred - label))
         l1 = torch.mean(torch.mean(torch.abs(pred - label), 1), 0)
         l2 = torch.mean(torch.mean(((pred - label) ** 2 + t ** 2) / t / 2, 1), 0)
+
         return l2 if l1 > t else l1
+

@@ -19,27 +19,34 @@ This is an original implementation of [Deeper Depth Prediction with Fully Convol
 
 ## Results
 
-After 15 epochs of training:
+After 25 epochs of training:
 
-<img src="pics/rgb_2.png" alt="rgb_2" style="zoom:65%;" /> <img src="pics/gt_2.png" alt="pred_2" style="zoom:65%;" /><img src="pics/pred_2.png" alt="gt_2" style="zoom:65%;" />
+![result2](pics/result2.png)
 
-------
+![result1](pics/result1.png)
 
+![result6](pics/result6.png)
 
+![](pics/result4.png)
 
-<img src="pics/rgb_0.png" alt="rgb_0" style="zoom:65%;" /><img src="pics/gt_0.png" alt="gt_0" style="zoom:65%;" /><img src="pics/pred_0.png" alt="pred_0" style="zoom:65%;" />
+![](pics/result5.png)
 
-------
-
-
-
-<img src="pics/rgb_1.png" alt="rgb_1" style="zoom:65%;" /><img src="pics/gt_1.png" alt="pred_1" style="zoom:65%;" /><img src="pics/pred_1.png" alt="pred_1" style="zoom:65%;" />
-
-------
-
-**Complete Code will be uploaded in the near future.** 
+![result3](pics/result3.png)
 
 
 
+## Files
+
+- train.py : model training
+- trainOptions.py: training settings
+- predict.py: result visualization
 
 
+
+## Reference
+
+https://github.com/iro-cp/FCRN-DepthPrediction
+
+https://github.com/dontLoveBugs/FCRN_pytorch
+
+https://github.com/XPFly1989/FCRN

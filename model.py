@@ -133,7 +133,7 @@ class FCRN_wrapper:
         self.criterion = BerHuLoss()
 
         self.criterion.to(self.device)
-        self.optimizer = create_optimizer(type='adam', model=self.model, lr=self.opt.lr)
+        self.optimizer = create_optimizer(type=self.opt.optimizer, model=self.model, lr=self.opt.lr)
         self.scheduler = self.get_scheduler()
 
         # save
@@ -157,11 +157,17 @@ class FCRN_wrapper:
                                                                  train_sampler, val_sampler)
 
     def load_pretrained_model(self, pth_path):
+        """ continues training with previous model """
+        print(' loading pretrained model from {}'.format(pth_path))
         state_dict = torch.load(pth_path, map_location=str(self.device))
         self.model.load_state_dict(state_dict['model'])
         self.epoch = state_dict['epoch'] + 1
         self.optimizer.load_state_dict(state_dict['optimizer'])
-        self.iter = self.epoch * len(self.train_dataset)
+        if self.opt.optimizer == "adam":
+            self.optimizer.param_groups[0]['capturable'] = True  # a little bug for adam in pytorch
+        self.iter = int(self.epoch * len(self.train_dataset) / self.opt.batch_size)
+        print(' starting training from epoch: {}, iteration: {}'.format(self.epoch, self.iter))
+
 
     def save_checkpoint(self):
         checkpoint_filename = os.path.join(self.opt.checkpoints_dir, 'best_model' + '.pth')
@@ -252,7 +258,7 @@ class FCRN_wrapper:
 
             scheduler = lr_scheduler.LambdaLR(self.optimizer, lr_lambda=lambda_rule)
         elif self.opt.lr_policy == 'step':
-            scheduler = lr_scheduler.StepLR(self.optimizer, step_size=self.opt.lr_decay_iters, gamma=0.1)
+            scheduler = lr_scheduler.StepLR(self.optimizer, step_size=self.opt.n_epochs_decay, gamma=0.1)
         else:
             return NotImplementedError('learning rate policy [%s] is not implemented', self.opt.lr_policy)
         return scheduler
