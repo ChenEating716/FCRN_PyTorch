@@ -15,6 +15,9 @@ This is an original implementation of [Deeper Depth Prediction with Fully Convol
 - torch 1.9.1+cu111
 - numpy 1.21.2
 
+  Pre-trained model can be downloaded at [here](https://chalmers-my.sharepoint.com/:u:/g/personal/yitingch_chalmers_se/EfXgcyIuR-NApoeRrmQJLtIBu8cLxcUR1dkKPCX1SJjf_g?e=TMBat9) with pwd: 1234.
+
+
 
 
 ## Results
