@@ -38,8 +38,8 @@ After 25 epochs of training:
 ## Files
 
 - train.py : model training
-- trainOptions.py: training settings
 - predict.py: result visualization
+- utils/trainOptions.py: training settings
 
 
 

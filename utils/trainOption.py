@@ -4,7 +4,7 @@ import torch
 
 
 class TrainOptions:
-    """This class includes training options.
+    """This class includes training utils.
     """
 
     def __init__(self):
@@ -12,7 +12,7 @@ class TrainOptions:
         self.opt = None
 
     def initialize(self, parser):
-        """Define the common options that are used in both training and test."""
+        """Define the common utils that are used in both training and test."""
 
         # basic parameters
         parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are saved here')
@@ -74,7 +74,7 @@ class TrainOptions:
         return parser.parse_args()
 
     def parse(self, save_opt=True):
-        """Parse our options"""
+        """Parse our utils"""
         opt = self.gather_options()
         # set gpu ids
         str_ids = opt.gpu_ids.split(',')
@@ -134,4 +134,4 @@ def mkdir(path):
 
 
 if __name__ == "__main__":
-    opt = TrainOptions().parse()  # get training options
+    opt = TrainOptions().parse()  # get training utils

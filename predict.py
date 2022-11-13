@@ -6,10 +6,10 @@ version: python 3.9
 Created by PyCharm
 """
 import random
-from model import FCRN
+from model.fcrn import FCRN
 import torch
-from dataloader import nyu_dataset
-from trainOption import TrainOptions
+from dataset.dataloader import nyu_dataset
+from utils.trainOption import TrainOptions
 import matplotlib.pyplot as plt
 
 
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     net.to(device)
     net.eval()
 
-    opt = TrainOptions().parse()  # get options
+    opt = TrainOptions().parse()  # get utils
     data_loader = nyu_dataset(opt)
     data_loader.set_test_mode()
     idx = random.randint(0, len(data_loader))

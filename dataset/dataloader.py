@@ -12,10 +12,9 @@ import torch
 import torch.utils.data
 import numpy as np
 import torchvision.transforms.functional as tf
-import torchvision.transforms as transforms
 import glob
 import random
-from trainOption import TrainOptions
+from utils.trainOption import TrainOptions
 
 
 class DatasetBase(torch.utils.data.Dataset, ABC):
@@ -86,7 +85,6 @@ class DatasetBase(torch.utils.data.Dataset, ABC):
 
 
 import imageio.v2 as imageio
-from PIL import Image
 
 
 class nyu_dataset(DatasetBase):
@@ -132,9 +130,8 @@ class nyu_dataset(DatasetBase):
 
 
 if __name__ == "__main__":
-    from torchvision.transforms import ToPILImage
     import matplotlib.pyplot as plt
-    opt = TrainOptions().parse()  # get training options
+    opt = TrainOptions().parse()  # get training utils
     data_loader = nyu_dataset(opt)
     print(len(data_loader))
     data = data_loader[0]

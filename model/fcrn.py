@@ -5,13 +5,12 @@
 
 import torch
 import torch.nn as nn
-from network import projection, skip, fast_up_projection
+from model.network import projection, skip, fast_up_projection, BerHuLoss
 import os
 from torch.autograd import Variable
 import logging
 from tqdm import tqdm
-from utils import create_dataloader, create_sampler, create_optimizer
-from network import BerHuLoss
+from utils.utils import create_dataloader, create_sampler, create_optimizer
 from torch.optim import lr_scheduler
 from torchvision.utils import make_grid
 import math
@@ -250,7 +249,7 @@ class FCRN_wrapper:
                 return epoch_loss
 
     def get_scheduler(self):
-        """Get scheduler according to options"""
+        """Get scheduler according to utils"""
         if self.opt.lr_policy == 'linear':
             def lambda_rule(epoch):
                 lr_l = 1.0 - max(0, epoch - self.opt.n_epochs) / float(self.opt.n_epochs_decay + 1)
